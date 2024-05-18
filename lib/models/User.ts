@@ -4,16 +4,16 @@ const userSchema = new mongoose.Schema({
   clerkId: String,
   wishlist: {
     type: Array,
-    default: []
+    default: [],
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

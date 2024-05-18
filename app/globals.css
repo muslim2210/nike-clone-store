@@ -49,6 +49,7 @@
   object-fit: cover;
   object-position: center;
 }
+
 .productCarousel.carousel-root .carousel .thumb:after {
   content: "";
   width: 100%;

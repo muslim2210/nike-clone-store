@@ -55,6 +55,7 @@ const Header = () => {
               alt="logo"
               width={100}
               height={100}
+              priority
               className="w-[40px] md:w-[60px]"
             />
           </Link>

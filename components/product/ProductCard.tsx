@@ -1,12 +1,25 @@
+"use client";
 import { Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { FormatRupiah } from "@arismun/format-rupiah";
+import { useUser } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import HeartWishlist from "./HeartWishlist";
 
-const ProductCard = ({ product }: { product: ProductType }) => {
+interface ProductCardProps {
+  product: ProductType;
+  updateSignedInUser?: (updatedUser: UserType) => void;
+}
+
+const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
   return (
-    <div className="transform overflow-hidden bg-white duration-200 hover:scale-105 flex flex-col gap-1">
-      <Link href={`/product/${product._id}`}>
+    <div
+      className="transform overflow-hidden bg-white duration-200 hover:scale-105 flex flex-col gap-1"
+      key={product._id}
+    >
+      <Link href={`/products/${product._id}`}>
         <Image
           width={500}
           height={500}
@@ -24,9 +37,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           <p className="mr-2 text-lg font-semibold">
             <FormatRupiah value={product.price} />
           </p>
-          <button>
-            <Heart />
-          </button>
+          <HeartWishlist
+            product={product}
+            updateSignedInUser={updateSignedInUser}
+          />
         </div>
       </div>
     </div>

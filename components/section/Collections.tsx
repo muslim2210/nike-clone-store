@@ -73,7 +73,7 @@ const Collections = () => {
             infinite={true}
           >
             {data.map((collection: CollectionType) => (
-              <>
+              <div key={collection._id}>
                 <h2 className="text-primaryBlack font-medium text-2xl oswald mt-5 underline">
                   {collection.title}
                 </h2>
@@ -94,7 +94,7 @@ const Collections = () => {
                     />
                   </div>
                 </Link>
-              </>
+              </div>
             ))}
           </Carousel>
         )}
