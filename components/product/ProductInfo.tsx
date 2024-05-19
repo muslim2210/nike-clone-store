@@ -4,6 +4,9 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { FormatRupiah } from "@arismun/format-rupiah";
 import HeartWishlist from "./HeartWishlist";
 
+import useCart from "@/lib/hooks/useCart";
+import { MinusCircle, PlusCircle } from "lucide-react";
+
 interface ProductCardProps {
   productInfo: ProductType;
   updateSignedInUser?: (updatedUser: UserType) => void;
@@ -16,6 +19,11 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
   const [selectedSize, setSelectedSize] = useState<string>(
     productInfo.sizes[0]
   );
+
+  const [quantity, setQuantity] = useState<number>(1);
+
+  const cart = useCart();
+
   return (
     <>
       {/* PRODUCT TITLE */}
@@ -32,10 +40,10 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
           <FormatRupiah value={productInfo.price} />
         </p>
 
-        <HeartWishlist
+        {/* <HeartWishlist
           product={productInfo}
           updateSignedInUser={updateSignedInUser}
-        />
+        /> */}
       </div>
 
       <div className="text-md font-medium text-black/[0.5]">incl. of taxes</div>
@@ -50,7 +58,7 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
             {productInfo.colors.map((color, index) => (
               <p
                 key={index}
-                className={`border border-black px-4 py-3 cursor-pointer ${
+                className={`border border-black px-4 py-3 cursor-pointer rounded-md ${
                   selectedColor === color && "bg-black text-white"
                 }`}
                 onClick={() => setSelectedColor(color)}
@@ -102,34 +110,27 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
       {/* ADD TO CART BUTTON START */}
       <button
         className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75"
-        // onClick={() => {
-        //   if (!selectedSize) {
-        //     setShowError(true);
-        //     document.getElementById("sizesGrid").scrollIntoView({
-        //       block: "center",
-        //       behavior: "smooth",
-        //     });
-        //   } else {
-        //     dispatch(
-        //       addToCart({
-        //         ...product?.data?.[0],
-        //         selectedSize,
-        //         oneQuantityPrice: p.price,
-        //       })
-        //     );
-        //     notify();
-        //   }
-        // }}
+        onClick={() => {
+          cart.addItem({
+            item: productInfo,
+            quantity,
+            color: selectedColor,
+            size: selectedSize,
+          });
+        }}
       >
         Add to Cart
       </button>
       {/* ADD TO CART BUTTON END */}
 
       {/* WHISHLIST BUTTON START */}
-      <button className="w-full py-4 rounded-full border border-black text-lg font-medium transition-transform active:scale-95 flex items-center justify-center gap-2 hover:opacity-75 mb-10">
-        Wishlist
-        <IoMdHeartEmpty size={20} />
-      </button>
+      <div className="w-full py-4 rounded-full border border-black text-lg font-medium transition-transform flex items-center justify-center gap-2 mb-10">
+        Favourite
+        <HeartWishlist
+          product={productInfo}
+          updateSignedInUser={updateSignedInUser}
+        />
+      </div>
       {/* WHISHLIST BUTTON END */}
 
       <div>

@@ -23,7 +23,7 @@
 .productCarousel.carousel-root {
   display: flex;
   flex-direction: row-reverse;
-  gap: 15px;
+  gap: 25px;
 }
 .productCarousel.carousel-root .carousel {
   width: auto;
@@ -79,13 +79,17 @@
     border: 0;
     padding: 0;
   }
+  .productCarousel.carousel-root .carousel {
+    width: 400px;
+    height: 350px;
+  }
 }
 @media screen and (min-width: 768px) {
   .productCarousel.carousel-root .carousel .thumbs {
     transform: none !important;
     flex-direction: column;
     display: flex;
-    gap: 10px;
+    gap: 15px;
   }
   .productCarousel.carousel-root .carousel .thumb {
     border: 0;

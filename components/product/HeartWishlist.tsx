@@ -59,7 +59,7 @@ const HeartWishlist = ({ product, updateSignedInUser }: HeartWishlistProps) => {
 
   return (
     <button onClick={handleLike}>
-      <Heart fill={`${isLiked ? "red" : "white"}`} />
+      <Heart fill={`${isLiked ? "black" : "white"}`} className="w-4 h-4" />
     </button>
   );
 };

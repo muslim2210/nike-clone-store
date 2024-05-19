@@ -4,6 +4,7 @@ import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
+import ToasterProvider from "@/lib/providers/ToasterProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${urbanist.className} ${oswald.variable}`}>
+          <ToasterProvider />
           <Header />
           {children}
           <Footer />

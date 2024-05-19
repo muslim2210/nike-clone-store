@@ -15,8 +15,8 @@ const Gallery = ({ productMedia }: { productMedia: string[] }) => {
         className="productCarousel"
       >
         {productMedia.map((media, index) => (
-          <div key={index}>
-            <img src={media} alt={media} />
+          <div key={index} className="rounded-[10px]">
+            <img src={media} alt={media} className="rounded-[10px]" />
           </div>
         ))}
       </Carousel>

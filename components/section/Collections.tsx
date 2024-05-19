@@ -59,7 +59,7 @@ const Collections = () => {
   return (
     <Wrapper>
       <div className="mt-[50px] md:mt-[100px] mb-[100px] relative">
-        <div className="text-3xl font-bold mb-5">Collections</div>
+        <div className="text-3xl font-bold mb-5">Shop By Collections</div>
         {!data || data.length === 0 ? (
           <p className="text-body-bold">No collections found</p>
         ) : (

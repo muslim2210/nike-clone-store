@@ -34,7 +34,7 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
         </h2>
         <span className="text-sm text-slate-500">{product.category}</span>
         <div className="flex items-center justify-between">
-          <p className="mr-2 text-lg font-semibold">
+          <p className="mr-2 text-sm md:text-lg font-semibold">
             <FormatRupiah value={product.price} />
           </p>
           <HeartWishlist

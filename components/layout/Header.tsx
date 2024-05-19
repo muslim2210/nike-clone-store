@@ -12,6 +12,7 @@ import MenuMobile from "../section/MenuMobile";
 import { UserButton, useUser } from "@clerk/nextjs";
 import MenuLink from "../section/Menu";
 import { CircleUserRound, Menu } from "lucide-react";
+import useCart from "@/lib/hooks/useCart";
 const Header = () => {
   const { user } = useUser();
 
@@ -22,6 +23,8 @@ const Header = () => {
   const [categories, setCategories] = useState(null);
 
   const [dropDownMenu, setDropDownMenu] = useState(false);
+
+  const cart = useCart();
 
   const controlNavbar = () => {
     if (window.scrollY > 500) {
@@ -79,39 +82,23 @@ const Header = () => {
           )}
           <div className="flex items-center gap-2 text-black relative">
             {/* Icon start */}
-            <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-              <IoMdHeartEmpty className="text-[19px] md:text-[24px]" />
-              <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
-                51
+            <Link href="/wishlist">
+              <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative mr-[-8px]">
+                <IoMdHeartEmpty className="text-[23px] md:text-[28px]" />
               </div>
-            </div>
+            </Link>
             {/* Icon end */}
 
             {/* Icon start */}
             <Link href="/cart">
               <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-                <BsCart className="text-[15px] md:text-[20px]" />
-                <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
-                  0
+                <BsCart className="text-[20px] md:text-[25px] mr-1" />
+                <div className="h-[18px] md:h-[22px] min-w-[18px] md:min-w-[22px] rounded-full bg-red-600 absolute top-0 left-4 md:left-6 text-white text-[12px] md:text-[14px] flex justify-center items-center px-[2px] md:px-[5px]">
+                  {cart.cartItems.length}
                 </div>
               </div>
             </Link>
             {/* Icon end */}
-
-            {/* {user} */}
-            {user && (
-              <Menu
-                className="cursor-pointer"
-                onClick={() => setDropDownMenu(!dropDownMenu)}
-              />
-            )}
-
-            {user && dropDownMenu && (
-              <div className="absolute top-10 right-5 bg-white text-base font-semibold flex flex-col gap-2 p-3 rounded-lg shadow-md">
-                <Link href="/orders">Orders</Link>
-                <Link href="/orders">Orders</Link>
-              </div>
-            )}
 
             {user ? (
               <UserButton afterSignOutUrl="/" />
