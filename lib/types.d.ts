@@ -3,6 +3,8 @@ type CollectionType = {
   title: string;
   products: number;
   image: string;
+  length: number;
+  products: [number];
 };
 
 type ProductType = {
@@ -43,4 +45,12 @@ type OrderItemType = {
   size: string;
   quantity: number;
   _id: string;
+};
+
+type MenuType = {
+  name: string;
+  url: string;
+  subMenu?: [MenuType];
+  id: number;
+  doc_count: number;
 };

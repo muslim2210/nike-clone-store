@@ -20,13 +20,18 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
       key={product._id}
     >
       <Link href={`/products/${product._id}`}>
-        <Image
-          width={500}
-          height={500}
-          src={product.media[0]}
-          alt=""
-          priority
-        />
+        <div className="">
+          {product.media && (
+            <Image
+              width={500}
+              height={500}
+              src={product.media[0]}
+              alt=""
+              priority
+              className="h-[180px] md:h-[250px] lg:h-[300px] md:w-full object-cover"
+            />
+          )}
+        </div>
       </Link>
       <div className="py-4 px-2 flex flex-col gap-2">
         <h2 className="text-lg font-medium text-primaryBlack">

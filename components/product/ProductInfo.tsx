@@ -36,7 +36,7 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
 
       {/* PRODUCT PRICE */}
       <div className="flex items-center  justify-between">
-        <p className="mr-2 text-lg md:text-xl font-semibold">
+        <p className="mr-2 text-lg md:text-2xl font-semibold">
           <FormatRupiah value={productInfo.price} />
         </p>
 
@@ -124,7 +124,7 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
       {/* ADD TO CART BUTTON END */}
 
       {/* WHISHLIST BUTTON START */}
-      <div className="w-full py-4 rounded-full border border-black text-lg font-medium transition-transform flex items-center justify-center gap-2 mb-10">
+      <div className="w-full py-4 rounded-full border hover:border-black text-lg font-medium transition-transform flex items-center justify-center gap-2 mb-10">
         Favourite
         <HeartWishlist
           product={productInfo}

@@ -22,6 +22,30 @@ const Cart = () => {
   );
   const totalRounded = parseFloat(total.toFixed(2));
 
+  const customer = {
+    clerkId: user?.id,
+    email: user?.emailAddresses[0].emailAddress,
+    name: user?.fullName,
+  };
+
+  const handleCheckout = async () => {
+    try {
+      if (!user) {
+        router.push("sign-in");
+      } else {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+          method: "POST",
+          body: JSON.stringify({ cartItems: cart.cartItems, customer }),
+        });
+        const data = await res.json();
+        window.location.href = data.url;
+        console.log(data);
+      }
+    } catch (err) {
+      console.log("[checkout_POST]", err);
+    }
+  };
+
   return (
     <div className="w-full md:py-20">
       <Wrapper>
@@ -96,7 +120,10 @@ const Cart = () => {
             </div>
 
             {/* BUTTON START */}
-            <button className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center">
+            <button
+              className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
+              onClick={handleCheckout}
+            >
               Checkout
             </button>
             {/* BUTTON END */}

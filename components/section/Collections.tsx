@@ -59,7 +59,9 @@ const Collections = () => {
   return (
     <Wrapper>
       <div className="mt-[50px] md:mt-[100px] mb-[100px] relative">
-        <div className="text-3xl font-bold mb-5">Shop By Collections</div>
+        <div className="text-2xl md:text-3xl font-bold mb-5 max-w-[100px] md:max-w-full">
+          Shop By Collections {`(${data?.length})`}
+        </div>
         {!data || data.length === 0 ? (
           <p className="text-body-bold">No collections found</p>
         ) : (
@@ -72,9 +74,9 @@ const Collections = () => {
             customButtonGroup={<ButtonGroup />}
             infinite={true}
           >
-            {data.map((collection: CollectionType) => (
+            {data?.map((collection: CollectionType) => (
               <div key={collection._id}>
-                <h2 className="text-primaryBlack font-medium text-2xl oswald mt-5 underline">
+                <h2 className="text-primaryBlack font-medium text-2xl oswald underline">
                   {collection.title}
                 </h2>
                 <Link
@@ -83,15 +85,17 @@ const Collections = () => {
                   className=""
                 >
                   <div className="w-[350px] h-[450px] mt-3">
-                    <Image
-                      key={collection._id}
-                      src={collection.image}
-                      alt={collection.title}
-                      width={500}
-                      height={600}
-                      priority
-                      className="object-cover"
-                    />
+                    {collection.image && (
+                      <Image
+                        key={collection._id}
+                        src={collection.image}
+                        alt={collection.title}
+                        width={500}
+                        height={600}
+                        priority
+                        className="object-cover"
+                      />
+                    )}
                   </div>
                 </Link>
               </div>

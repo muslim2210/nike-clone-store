@@ -22,7 +22,7 @@ const ProductDetails = async ({
           {/* left column end */}
 
           {/* right column start */}
-          <div className="flex-[1] mt-[-270px] md:mt-[-100px] lg:mt-0 py-3">
+          <div className="flex-[1] mt-[-260px] md:mt-12 lg:mt-0 py-3">
             <ProductInfo productInfo={productDetails} />
           </div>
           {/* right column end */}

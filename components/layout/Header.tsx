@@ -83,16 +83,16 @@ const Header = () => {
           <div className="flex items-center gap-2 text-black relative">
             {/* Icon start */}
             <Link href="/wishlist">
-              <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative mr-[-8px]">
-                <IoMdHeartEmpty className="text-[23px] md:text-[28px]" />
+              <div className="w-8 md:w-10 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative mr-[-12px]">
+                <IoMdHeartEmpty className="text-[23px]" />
               </div>
             </Link>
             {/* Icon end */}
 
             {/* Icon start */}
             <Link href="/cart">
-              <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-                <BsCart className="text-[20px] md:text-[25px] mr-1" />
+              <div className="w-8 md:w-10 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
+                <BsCart className="text-[20px] mr-1" />
                 <div className="h-[18px] md:h-[22px] min-w-[18px] md:min-w-[22px] rounded-full bg-red-600 absolute top-0 left-4 md:left-6 text-white text-[12px] md:text-[14px] flex justify-center items-center px-[2px] md:px-[5px]">
                   {cart.cartItems.length}
                 </div>

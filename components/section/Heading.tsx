@@ -5,8 +5,8 @@ const Heading = ({ span, title, subtitle }: any) => {
   return (
     <Wrapper>
       {/* heading and paragaph start */}
-      <div className="max-w-[800px] mx-auto my-[50px] md:my-[70px]">
-        <div className="flex flex-col gap-y-1">
+      <div className="max-w-[800px] mx-auto my-[30px] md:my-[70px]">
+        <div className="flex flex-col md:gap-y-1">
           <span className="text-primaryBlack font-medium text-lg mb-0 text-center">
             {span}
           </span>
