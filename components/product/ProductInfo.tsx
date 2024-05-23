@@ -133,9 +133,15 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
       </div>
       {/* WHISHLIST BUTTON END */}
 
+      <div className="text-md font-medium text-black/[0.5] text-center max-w-[300px] mx-auto mb-10">
+        This product is excluded from site promotions and discounts.
+      </div>
+
       <div>
-        <div className="text-lg font-bold mb-5">Product Details</div>
-        <div className="markdown text-md mb-5">{productInfo.description}</div>
+        <div className="text-lg font-semibold mb-5">Product Description</div>
+        <div className="text-primaryBlack text-base text-pretty mb-5">
+          {productInfo.description}
+        </div>
       </div>
     </>
   );

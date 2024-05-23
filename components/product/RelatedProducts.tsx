@@ -11,20 +11,20 @@ const RelatedProducts = ({
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1023, min: 464 },
-      items: 2,
+      items: 3,
     },
     mobile: {
       breakpoint: { max: 767, min: 0 },
-      items: 1,
+      items: 2,
     },
   };
 
   return (
-    <div className="mt-[50px] md:mt-[100px] mb-[100px] md:mb-0">
+    <div className="mt-[70px] md:mt-[150px] mb-[100px] md:mb-0">
       <div className="text-2xl font-bold mb-5">You Might Also Like</div>
       <Carousel
         responsive={responsive}

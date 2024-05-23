@@ -2,7 +2,8 @@ import Wrapper from "@/components/layout/Wrapper";
 import Gallery from "@/components/product/Gallery";
 import ProductCard from "@/components/product/ProductCard";
 import ProductInfo from "@/components/product/ProductInfo";
-import { getProductDetails } from "@/lib/actions/actions";
+import RelatedProducts from "@/components/product/RelatedProducts";
+import { getProductDetails, getRelatedProducts } from "@/lib/actions/actions";
 import "react-multi-carousel/lib/styles.css";
 
 const ProductDetails = async ({
@@ -11,6 +12,7 @@ const ProductDetails = async ({
   params: { productId: string };
 }) => {
   const productDetails = await getProductDetails(params.productId);
+  const relatedProducts = await getRelatedProducts(params.productId);
 
   return (
     <div className="w-full md:py-20">
@@ -28,6 +30,7 @@ const ProductDetails = async ({
           </div>
           {/* right column end */}
         </div>
+        <RelatedProducts relatedProducts={relatedProducts} />
       </Wrapper>
     </div>
   );
