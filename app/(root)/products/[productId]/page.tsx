@@ -1,8 +1,9 @@
 import Wrapper from "@/components/layout/Wrapper";
 import Gallery from "@/components/product/Gallery";
+import ProductCard from "@/components/product/ProductCard";
 import ProductInfo from "@/components/product/ProductInfo";
-import { getProductDetails, getRelatedProducts } from "@/lib/actions/actions";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { getProductDetails } from "@/lib/actions/actions";
+import "react-multi-carousel/lib/styles.css";
 
 const ProductDetails = async ({
   params,
@@ -31,5 +32,7 @@ const ProductDetails = async ({
     </div>
   );
 };
+
+export const dynamic = "force-dynamic";
 
 export default ProductDetails;

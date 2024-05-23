@@ -136,4 +136,6 @@ const Cart = () => {
   );
 };
 
+export const dynamic = "force-dynamic";
+
 export default Cart;

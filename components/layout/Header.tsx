@@ -13,6 +13,7 @@ import { UserButton, useUser } from "@clerk/nextjs";
 import MenuLink from "../section/Menu";
 import { CircleUserRound, Menu } from "lucide-react";
 import useCart from "@/lib/hooks/useCart";
+import SearchModal from "./SearchModal";
 const Header = () => {
   const { user } = useUser();
 
@@ -21,8 +22,6 @@ const Header = () => {
   const [show, setShow] = useState("translate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [categories, setCategories] = useState(null);
-
-  const [dropDownMenu, setDropDownMenu] = useState(false);
 
   const cart = useCart();
 
@@ -63,7 +62,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="flex-1 hidden md:flex justify-center">
+        <div className="flex-1 hidden lg:flex justify-center">
           <MenuLink
             showCatMenu={showCatMenu}
             setShowCatMenu={setShowCatMenu}
@@ -71,7 +70,8 @@ const Header = () => {
           />
         </div>
 
-        <div className="flex-1 flex justify-end items-center">
+        <div className="flex-1 gap-1 flex justify-end items-center">
+          <SearchModal />
           {mobileMenu && (
             <MenuMobile
               showCatMenu={showCatMenu}
@@ -80,11 +80,11 @@ const Header = () => {
               categories={categories}
             />
           )}
-          <div className="flex items-center gap-2 text-black relative">
+          <div className="flex items-center gap-4 text-black relative">
             {/* Icon start */}
-            <Link href="/wishlist">
+            <Link href={user ? "/wishlist" : "/sign-in"}>
               <div className="w-8 md:w-10 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative mr-[-12px]">
-                <IoMdHeartEmpty className="text-[23px]" />
+                <IoMdHeartEmpty className="text-[23px] mr-1" />
               </div>
             </Link>
             {/* Icon end */}
@@ -109,7 +109,7 @@ const Header = () => {
             )}
 
             {/* Mobile icon start */}
-            <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
+            <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex lg:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
               {mobileMenu ? (
                 <VscChromeClose
                   className="text-[16px]"

@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/custom ui/Loader";
 import Wrapper from "@/components/layout/Wrapper";
 import ProductCard from "@/components/product/ProductCard";
 import { getProductDetails } from "@/lib/actions/actions";
@@ -66,15 +67,19 @@ const Wishlist = () => {
         {wishlist.length === 0 && <p>No items in your wishlist</p>}
 
         {/* products grid start */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-14 md:px-0">
-          {wishlist.map((product) => (
-            <ProductCard
-              key={product._id}
-              product={product}
-              updateSignedInUser={updateSignedInUser}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-14 md:px-0">
+            {wishlist.map((product) => (
+              <ProductCard
+                key={product._id}
+                product={product}
+                updateSignedInUser={updateSignedInUser}
+              />
+            ))}
+          </div>
+        )}
         {/* products grid end */}
 
         {/* PAGINATION BUTTONS START */}
@@ -112,5 +117,7 @@ const Wishlist = () => {
     </div>
   );
 };
+
+export const dynamic = "force-dynamic";
 
 export default Wishlist;

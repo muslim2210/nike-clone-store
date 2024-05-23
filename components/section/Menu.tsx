@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 import useSWR from "swr";
+import { useUser } from "@clerk/nextjs";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -12,8 +13,10 @@ const MenuLink = ({ showCatMenu, setShowCatMenu, categories }: any) => {
     fetcher
   );
 
+  const { user } = useUser();
+
   return (
-    <ul className="hidden md:flex items-center gap-8 font-medium text-black text-lg">
+    <ul className="hidden md:flex items-center gap-5 font-medium text-black text-base">
       <li className="cursor-pointer">
         <Link href="/">Home</Link>
       </li>
@@ -28,7 +31,7 @@ const MenuLink = ({ showCatMenu, setShowCatMenu, categories }: any) => {
         Collections
         <BsChevronDown size={14} />
         {showCatMenu && (
-          <ul className="bg-white absolute top-7 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
+          <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
             {data?.map((collection: any) => {
               return (
                 <Link
@@ -50,7 +53,7 @@ const MenuLink = ({ showCatMenu, setShowCatMenu, categories }: any) => {
       </li>
 
       <li className="cursor-pointer">
-        <Link href="/orders">Orders</Link>
+        <Link href={user ? "/orders" : "/sign-in"}>Orders</Link>
       </li>
     </ul>
   );

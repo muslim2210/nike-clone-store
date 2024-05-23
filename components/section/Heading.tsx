@@ -10,7 +10,7 @@ const Heading = ({ span, title, subtitle }: any) => {
           <span className="text-primaryBlack font-medium text-lg mb-0 text-center">
             {span}
           </span>
-          <h1 className="text-center text-[44px] md:text-[56px] lg:text-[64px] mb-10 font-black tracking-tighter leading-none oswald uppercase">
+          <h1 className="text-center text-[44px] md:text-[56px] lg:text-[64px] mb-4 md:mb-6 font-black tracking-tighter leading-none oswald uppercase">
             {title}
           </h1>
           <h5 className="text-primaryBlack font-medium text-base md:text-xl text-center">

@@ -32,7 +32,7 @@ const MenuMobile = ({
   );
 
   return (
-    <ul className="flex flex-col md:hidden font-bold absolute top-[50px] left-0 w-full bg-white border-t border-b shadow-md text-black">
+    <ul className="flex flex-col lg:hidden font-bold absolute top-[50px] md:top-[80px] left-0 w-full bg-white border-t border-b shadow-md text-black">
       <li className="py-4 px-5">
         <Link href="/" onClick={() => setMobileMenu(false)}>
           Home
