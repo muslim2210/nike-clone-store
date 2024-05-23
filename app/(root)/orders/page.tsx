@@ -37,15 +37,17 @@ const Orders = async () => {
             </div>
 
             <div className="flex flex-col gap-5">
-              {order.products.map((orderItem: OrderItemType) => (
-                <div className="flex gap-4">
-                  <Image
-                    src={orderItem.product.media[0]}
-                    alt={orderItem.product.title}
-                    width={100}
-                    height={100}
-                    className="w-32 h-32 object-cover rounded-lg"
-                  />
+              {order?.products?.map((orderItem: OrderItemType) => (
+                <div className="flex gap-4" key={orderItem.product._id}>
+                  {orderItem.product.media && (
+                    <Image
+                      src={orderItem.product.media[0]}
+                      alt={orderItem.product.title}
+                      width={100}
+                      height={100}
+                      className="w-32 h-32 object-cover rounded-lg"
+                    />
+                  )}
                   <div className="flex flex-col justify-between">
                     <p className="text-small-medium">
                       Title:{" "}
