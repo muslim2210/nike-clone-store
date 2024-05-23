@@ -15,6 +15,9 @@ const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 export const metadata: Metadata = {
   title: "Nike Clone Store",
   description: "next js 14 ecommerce store",
+  icons: {
+    icon: "/favicon.ico", // /public path
+  },
 };
 
 export default function RootLayout({

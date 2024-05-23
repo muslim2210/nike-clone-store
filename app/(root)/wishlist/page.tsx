@@ -71,7 +71,7 @@ const Wishlist = () => {
           <Loader />
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-14 md:px-0">
-            {wishlist.map((product) => (
+            {wishlist?.map((product) => (
               <ProductCard
                 key={product._id}
                 product={product}
