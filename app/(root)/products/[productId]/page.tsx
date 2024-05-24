@@ -19,7 +19,7 @@ const ProductDetails = async ({
       <Wrapper>
         <div className="flex flex-col lg:flex-row md:px-10 gap-2 lg:gap-[100px]">
           {/* left column start */}
-          <div className="w-full md:w-auto flex-[1.5] mt-10 md:mt-0 max-w-[500px] md:max-w-[700px] lg:max-w-full mx-auto lg:mx-0">
+          <div className="w-full md:w-auto flex-[1.5] mt-10 md:mt-0 max-w-[400px] md:max-w-[700px] lg:max-w-full mx-auto lg:mx-0">
             <Gallery productMedia={productDetails.media} />
           </div>
           {/* left column end */}
