@@ -34,10 +34,12 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
         </div>
       </Link>
       <div className="py-4 px-2 flex flex-col gap-2">
-        <h2 className="text-lg font-medium text-primaryBlack">
+        <h2 className="text-sm md:text-lg font-medium text-primaryBlack">
           {product.title}
         </h2>
-        <span className="text-sm text-slate-500">{product.category}</span>
+        <span className="text-xs md:text-sm text-slate-500">
+          {product.category}
+        </span>
         <div className="flex items-center justify-between">
           <p className="mr-2 text-sm md:text-lg font-semibold">
             <FormatRupiah value={product.price} />

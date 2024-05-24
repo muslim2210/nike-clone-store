@@ -9,7 +9,7 @@ const ProductsPage = async () => {
     <Wrapper className="my-10">
       <div className="text-primaryBlack flex flex-col gap-2">
         <h5 className="font-medium text-xs md:text-base">Products</h5>
-        <h2 className="text-[20px] md:text-[34px] font-semibold leading-tight">
+        <h2 className="text-xl md:text-[34px] font-semibold leading-tight">
           All Products {`(${products.length})`}
         </h2>
       </div>

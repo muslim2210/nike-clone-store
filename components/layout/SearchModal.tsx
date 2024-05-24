@@ -58,7 +58,7 @@ const SearchModal = () => {
             <Search className="text-primaryBlack w-5 h-5 cursor-pointer absolute right-1" />
           </button> */}
       </AlertDialogTrigger>
-      <AlertDialogContent className="">
+      <AlertDialogContent className="bg-white dark:bg-white">
         <AlertDialogHeader>
           <AlertDialogTitle></AlertDialogTitle>
         </AlertDialogHeader>
@@ -80,7 +80,7 @@ const SearchModal = () => {
                 router.refresh();
               }}
               placeholder="Search..."
-              className="px-4 py-2 w-[300px] lg:w-[700px] text-sm rounded-full bg-primaryGray"
+              className="px-4 py-2 w-[250px] md:w-[350px] lg:w-[700px] text-sm rounded-full bg-primaryGray"
             />
             <AlertDialogAction className="bg-trasparent hover:bg-trasparent relative">
               <button

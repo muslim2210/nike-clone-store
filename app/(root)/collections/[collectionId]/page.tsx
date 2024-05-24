@@ -35,7 +35,7 @@ const CollectionsDetails = async ({
           <h5 className="font-medium text-xs md:text-base">
             Collections / {collectionDetails.title}
           </h5>
-          <h2 className="text-[20px] md:text-[34px] font-semibold leading-tight">
+          <h2 className="text-xl md:text-[34px] font-semibold leading-tight">
             {collectionDetails.title} Shoes{" "}
             {`(${collectionDetails.products.length})`}
           </h2>

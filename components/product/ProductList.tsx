@@ -30,8 +30,8 @@ const ProductList = () => {
   };
   return (
     <Wrapper>
-      <div className="mt-[50px] md:mt-[100px] mb-[100px] relative">
-        <div className="text-2xl md:text-3xl font-bold mb-5">
+      <div className="mt-[80px] md:mt-[100px] mb-[100px] relative">
+        <div className="text-xl md:text-2xl font-bold mb-5">
           All Featured Products
         </div>
         {!data || data.length === 0 ? (
@@ -40,7 +40,7 @@ const ProductList = () => {
           <Carousel
             responsive={responsive}
             containerClass="-mx-[10px]"
-            itemClass="px-[10px] mt-5"
+            itemClass="px-[5px] md:px-[10px] mt-5"
             infinite={true}
           >
             {data?.map((product: ProductType) => (

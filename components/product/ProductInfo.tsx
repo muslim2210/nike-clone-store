@@ -27,7 +27,7 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
   return (
     <>
       {/* PRODUCT TITLE */}
-      <div className="text-[34px] font-semibold mb-2 leading-tight">
+      <div className="text-2xl md:text-[34px] mt-3 md:mt-0 font-semibold mb-2 leading-tight">
         {productInfo.title}
       </div>
 
@@ -54,11 +54,11 @@ const ProductInfo = ({ productInfo, updateSignedInUser }: ProductCardProps) => {
       {productInfo.colors.length > 0 && (
         <div className="flex flex-col gap-2">
           <p className="text-base-medium text-black/[0.5]">Colors:</p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {productInfo.colors.map((color, index) => (
               <p
                 key={index}
-                className={`border border-black px-4 py-3 cursor-pointer rounded-md ${
+                className={`border rounded-md text-center font-medium py-2 px-3 cursor-pointer capitalize ${
                   selectedColor === color && "bg-black text-white"
                 }`}
                 onClick={() => setSelectedColor(color)}

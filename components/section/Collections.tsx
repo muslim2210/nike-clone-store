@@ -58,8 +58,8 @@ const Collections = () => {
 
   return (
     <Wrapper>
-      <div className="mt-[50px] md:mt-[100px] mb-[100px] relative">
-        <div className="text-2xl md:text-3xl font-bold mb-5 max-w-[100px] md:max-w-full">
+      <div className="mt-[50px] md:mt-[100px] mb-[80px] md:mb-[100px] relative">
+        <div className="text-xl md:text-3xl font-bold mb-5 max-w-[150px] md:max-w-full">
           Shop By Collections {`(${data?.length})`}
         </div>
         {!data || data.length === 0 ? (
@@ -84,7 +84,7 @@ const Collections = () => {
                   key={collection._id}
                   className=""
                 >
-                  <div className="w-[350px] h-[450px] mt-3">
+                  <div className="w-[310px] h-[350px] md:w-[350px] md:h-[450px] mt-3">
                     {collection.image && (
                       <Image
                         key={collection._id}

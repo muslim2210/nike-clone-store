@@ -25,11 +25,13 @@ const RelatedProducts = ({
 
   return (
     <div className="mt-[70px] md:mt-[150px] mb-[100px] md:mb-0">
-      <div className="text-2xl font-bold mb-5">You Might Also Like</div>
+      <div className="text-2xl md:text-3xl font-bold mb-5">
+        You Might Also Like
+      </div>
       <Carousel
         responsive={responsive}
         containerClass="-mx-[10px]"
-        itemClass="px-[10px]"
+        itemClass="px-[5px] md:px-[10px]"
       >
         {relatedProducts?.map((product: ProductType) => (
           <ProductCard key={product._id} product={product} />

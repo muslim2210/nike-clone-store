@@ -60,7 +60,7 @@ const Wishlist = () => {
     <div className="w-full md:py-20 relative">
       <Wrapper>
         <div className="max-w-[800px] mt-8 md:mt-0">
-          <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
+          <div className="text-xl md:text-[34px] mb-5 font-semibold leading-tight">
             Fovourite {`(${wishlist?.length})`}
           </div>
         </div>
@@ -70,7 +70,7 @@ const Wishlist = () => {
         {loading ? (
           <Loader />
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-14 md:px-0">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 my-8 md:my-14 md:px-0">
             {wishlist?.map((product) => (
               <ProductCard
                 key={product._id}

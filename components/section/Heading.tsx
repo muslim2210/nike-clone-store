@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Wrapper from "../layout/Wrapper";
 
@@ -18,7 +19,12 @@ const Heading = ({ span, title, subtitle }: any) => {
           </h5>
         </div>
         <div className="flex justify-center items-center gap-5 mt-5">
-          <button className="bg-primaryBlack w-[100px] text-white text-lg font-medium px-4 py-2 rounded-full">
+          <button
+            onClick={() => {
+              window.location.href = "/products";
+            }}
+            className="bg-primaryBlack w-[100px] text-white text-lg font-medium px-4 py-2 rounded-full"
+          >
             Buy It
           </button>
           <button className="bg-primaryBlack w-[100px] text-white text-lg font-medium px-4 py-2 rounded-full">

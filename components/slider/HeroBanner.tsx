@@ -1,7 +1,9 @@
+"use client";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { BiArrowBack } from "react-icons/bi";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const banner = [
   {
@@ -22,6 +24,7 @@ const banner = [
 ];
 
 const HeroBanner = () => {
+  const router = useRouter();
   return (
     <div className="relative text-white text-[20px] w-full max-w-[1360px] mx-auto">
       <Carousel
@@ -57,9 +60,14 @@ const HeroBanner = () => {
               priority
               className="aspect-[16/10] md:aspect-auto object-cover"
             />
-            <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
-              Shop now
-            </div>
+
+            <button
+              type="button"
+              onClick={() => router.push("/products")}
+              className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90"
+            >
+              shop now
+            </button>
           </div>
         ))}
       </Carousel>
